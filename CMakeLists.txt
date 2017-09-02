@@ -90,10 +90,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if (NOT MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-attributes")
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -s")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
 
     if (MINGW)
         add_definitions(-DMINGW_HAS_SECURE_API)
+        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--nxcompat,--tsaware,--major-os-version=6")
 
         if (MINGW_STATIC_BUILD)
             add_definitions(-DQT_STATICPLUGIN)
