@@ -125,7 +125,7 @@ else()
     # /Zi - Output debugging information
     # /Zo - enhanced debug info for optimized builds
     # /permissive- - enables stricter C++ standards conformance checks
-    set(CMAKE_C_FLAGS   "/W3 /MP /Zi /Zo /permissive-" CACHE STRING "" FORCE)
+    set(CMAKE_C_FLAGS   "/MP -fstrict-aliasing" CACHE STRING "" FORCE)
     # /EHsc - C++-only exception handling semantics
     # /Zc:throwingNew - let codegen assume `operator new` will never return null
     # /Zc:inline - let codegen omit inline functions in object files
